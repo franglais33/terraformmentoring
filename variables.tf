@@ -1,16 +1,9 @@
-variable "name" {}
+variable "name" {
+  type        = string
+  description = "Name of the desired resourcegroup"
+  default     = "myResourceGroup"
+}
 variable "location" {}
-
-#variable "region" {
-# description = "Azure Region."
-# type        = string
-#default     = "West Europe"
-#}
-
-#variable "ResourceGroup" {
-# default = "myResourceGroup"
-#}
-
 variable "Storage_Account_Name" {
   default = "tftestmentoring1"
 }
@@ -19,4 +12,6 @@ variable "subnetfirstcidr" {
   default = "10.1.1.0/24"
 }
 
-#variable "Storage" {}
+
+
+

@@ -6,24 +6,12 @@ module "resourcegroup" {
   source   = "./modules/resourcegroup"
   name     = var.name
   location = var.location
-
-  #tags = {
-  # Environment = "Terraform Getting Started"
-  #Team        = "DevOps"
-  #}
 }
-
-#resource "azurerm_virtual_network" "vnet" {
-# name                = "myTFVnet"
-# address_space       = ["10.1.0.0/16"]
-# location            = var.location
-# resource_group_name = var.name
-#}
 
 module "networking" {
   source          = "./modules/networking"
   location        = var.location
-  name            = var.name
+  name            = module.resourcegroup.resource_group_name
   subnetfirstcidr = var.subnetfirstcidr
 }
 
